@@ -35,12 +35,14 @@ const Product = ({ product }) => {
           <span className="inline-block bg-indigo-500 text-white rounded-lg px-4 py-2  mr-3 hover:bg-indigo-600">
             Price: {product.productPrice} /-
           </span>
-          <Link
-            to="/bkash-payment"
+          <button
+            onClick={() =>
+              (window.location.href = "/bkash-payment/" + product._id)
+            }
             className="inline-block bg-black text-white rounded-lg px-4 py-2 hover:bg-gray-700"
           >
             Buy Now
-          </Link>
+          </button>
 
           <div className="flex flex-col lg:flex-row justify-between mb-4"></div>
         </div>

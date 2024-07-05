@@ -28,9 +28,9 @@ const Navbar = () => {
                 <NavLink to="/products" className={linkClass}>
                   Shop
                 </NavLink>
-                <NavLink to="/bkash-payment" className={linkClass}>
-                  Bkash Payment
-                </NavLink>
+                {/* <NavLink to="/shopping-cart" className={linkClass}>
+                  Shopping Cart
+                </NavLink> */}
               </div>
             </div>
           </div>

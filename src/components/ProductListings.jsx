@@ -42,7 +42,7 @@ const ProductListings = ({ isHome = false }) => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {products &&
                 products.map((product) => {
-                  return <Product key={product.id} product={product} />;
+                  return <Product key={product._id} product={product} />;
                 })}
             </div>
           )}

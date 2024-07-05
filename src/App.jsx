@@ -24,7 +24,11 @@ const App = () => {
           element={<ProductPage />}
           loader={productLoader}
         />
-        <Route path="/bkash-payment" element={<BkashPayment />} />
+        <Route
+          path="/bkash-payment/:id"
+          element={<BkashPayment />}
+          loader={productLoader}
+        />
         <Route path="/success" element={<BkashSuccess />} />
         <Route path="/error?" element={<BkashError />} />
         <Route path="*" element={<NotFoundPage />} />
