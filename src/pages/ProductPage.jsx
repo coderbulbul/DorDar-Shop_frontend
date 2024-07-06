@@ -123,7 +123,9 @@ const ProductPage = () => {
 };
 
 const productLoader = async ({ params }) => {
-  const res = await axios.get(`/api/products/${params.id}`);
+  const res = await axios.get(
+    `https://dordar-backend.vercel.app/products/${params.id}`
+  );
   const data = await res.data.product;
 
   return data;
