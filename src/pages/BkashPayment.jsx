@@ -89,7 +89,7 @@ const BkashPayment = () => {
         }
       );
       console.log(data);
-      console.log("Hello");
+      alert(data);
       window.location.href = data.bkashURL;
     } catch (error) {
       console.log(error);
@@ -104,7 +104,7 @@ const BkashPayment = () => {
       </div>
       {/* Form start */}
       <form onSubmit={formik.handleSubmit}>
-        <div className=" text-base flex flex-col ">
+        <div className=" text-base flex flex-col">
           {/* Input field name start */}
           <label
             className={`font-bold ${
