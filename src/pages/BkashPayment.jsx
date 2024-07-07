@@ -268,7 +268,7 @@ const BkashPayment = () => {
 
         {/* Submit button start */}
         <button
-          onClick={pay()}
+          onClick={() => pay()}
           className="py-2 px-3 rounded-lg bg-indigo-700 hover:bg-indigo-600 text-white font-bold mt-3 w-full"
         >
           Order Now
