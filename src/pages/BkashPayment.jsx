@@ -89,8 +89,8 @@ const BkashPayment = () => {
         }
       );
       console.log(data);
-      // window.location.href = data.bkashURL;
-      window.Location.replace(data.bkashURL);
+      console.log("Hello");
+      window.location.href = data.bkashURL;
     } catch (error) {
       console.log(error);
     }
