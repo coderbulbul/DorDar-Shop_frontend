@@ -74,7 +74,7 @@ const BkashPayment = () => {
     },
   });
   const hello = async () => {
-    const { data } = await axios.post(
+    const { data } = await axios.get(
       "https://dordar-backend.vercel.app/bkash/payment/test"
     );
     console.log(data);
