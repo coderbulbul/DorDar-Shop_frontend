@@ -69,8 +69,8 @@ const BkashPayment = () => {
     }),
 
     // onSubmit form
-    onSubmit: async () => {
-      await pay();
+    onSubmit: () => {
+      pay();
     },
   });
 
@@ -268,7 +268,7 @@ const BkashPayment = () => {
 
         {/* Submit button start */}
         <button
-          type="submit"
+          onClick={pay()}
           className="py-2 px-3 rounded-lg bg-indigo-700 hover:bg-indigo-600 text-white font-bold mt-3 w-full"
         >
           Order Now
