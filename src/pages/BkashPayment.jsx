@@ -70,33 +70,11 @@ const BkashPayment = () => {
 
     // onSubmit form
     onSubmit: () => {
-      test();
+      pay();
     },
   });
 
-  const test = async () => {
-    try {
-      const res = await axios.post(
-        "https://dordar-backend.vercel.app/bkash/payment/create",
-        {
-          amount: paymentData.amount,
-          orderId: paymentData.orderId,
-          customer: formik.values,
-        },
-        {
-          withCredentials: true,
-        }
-      );
-      const data = await res.data;
-
-      console.log(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   const pay = async () => {
-    alert("fired");
     try {
       const { data } = await axios.post(
         "https://dordar-backend.vercel.app/bkash/payment/create",
@@ -115,7 +93,6 @@ const BkashPayment = () => {
     } catch (error) {
       console.log(error);
     }
-    return false;
   };
 
   return (
