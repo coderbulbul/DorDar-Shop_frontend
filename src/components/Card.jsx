@@ -31,14 +31,16 @@ const Card = ({ product }) => {
             <span className="inline-block bg-indigo-500 text-white rounded-lg px-4 m-3 py-2 hover:bg-indigo-600">
               Price: {product.productPrice}/-
             </span>
-            <button
-              onClick={() =>
-                (window.location.href = "/bkash-payment/" + product._id)
-              }
+            <Link
+              to={`/bkash-payment/${product._id}`}
+              // onClick={() =>
+              //   (window.location.href = "/bkash-payment/" + product._id)
+              // }
+
               className="inline-block bg-black text-white rounded-lg px-4 m-3 py-2 hover:bg-gray-700"
             >
               Buy Now
-            </button>
+            </Link>
           </div>
         </div>
         <div className="flex-1">
