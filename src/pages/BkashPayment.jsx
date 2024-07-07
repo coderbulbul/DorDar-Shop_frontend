@@ -70,9 +70,13 @@ const BkashPayment = () => {
 
     // onSubmit form
     onSubmit: () => {
-      pay();
+      test();
     },
   });
+
+  const test = () => {
+    console.log("Hello");
+  };
 
   const pay = async () => {
     alert("fired");
