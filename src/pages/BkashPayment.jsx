@@ -70,15 +70,10 @@ const BkashPayment = () => {
 
     // onSubmit form
     onSubmit: () => {
-      hello();
+      pay();
     },
   });
-  const hello = async () => {
-    const { data } = await axios.post(
-      "https://dordar-backend.vercel.app/bkash/payment/test"
-    );
-    console.log(data);
-  };
+
   const pay = async () => {
     try {
       const { data } = await axios.post(
