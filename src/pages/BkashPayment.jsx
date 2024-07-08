@@ -87,9 +87,8 @@ const BkashPayment = () => {
           withCredentials: true,
         }
       );
-      console.log(data);
-      alert(data);
-      // window.location.href = data.bkashURL;
+
+      window.location.href = data.bkashURL;
     } catch (error) {
       console.log(error);
     }
