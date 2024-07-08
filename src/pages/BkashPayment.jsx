@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, Link } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
@@ -278,6 +278,9 @@ const BkashPayment = () => {
       </form>
 
       {/* Bkash button */}
+      <Link className="p-3 bg-slate-500 rounded-lg" to="/success">
+        Success
+      </Link>
     </div>
   );
 };
