@@ -92,10 +92,6 @@ const BkashPayment = () => {
     } catch (error) {
       console.log(error);
     }
-    const url = await res.json();
-    console.log(url);
-    console.log(res);
-    window.location.href = url;
   };
 
   return (
