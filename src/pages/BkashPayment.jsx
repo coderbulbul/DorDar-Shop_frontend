@@ -277,10 +277,7 @@ const BkashPayment = () => {
         {/* Submit button end */}
       </form>
 
-      {/* Bkash button */}
-      <Link className="p-3 bg-slate-500 rounded-lg" to="/success">
-        Success
-      </Link>
+      
     </div>
   );
 };
