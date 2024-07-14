@@ -256,7 +256,7 @@ const BkashPayment = () => {
                   : " Payment after delivary"}{" "}
               </span>
               <span>
-                <strong>Delivary Charge:</strong> 120 /-
+                <strong>Delivary Charge:</strong> 50 /-
               </span>
 
               <span className="mt-2">
