@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useLoaderData, Link } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
@@ -74,10 +74,10 @@ const BkashPayment = () => {
     },
   });
 
-  const pay = async (req, res) => {
+  const pay = async () => {
     try {
       const { data } = await axios.post(
-        "https://dordar-backend.vercel.app/bkash/payment/create",
+        "api/bkash/payment/create",
         {
           amount: paymentData.amount,
           orderId: paymentData.orderId,
@@ -276,11 +276,6 @@ const BkashPayment = () => {
         </button>
         {/* Submit button end */}
       </form>
-
-      {/* Bkash button */}
-      <Link className="p-3 bg-slate-500 rounded-lg" to="/success">
-        Success
-      </Link>
     </div>
   );
 };

@@ -11,9 +11,8 @@ const HomeCards = () => {
   const fetchProducts = async () => {
     // Fetch products
     try {
-      const res = await axios.get("https://dordar-backend.vercel.app/products");
+      const res = await axios.get("http://localhost:8000/products");
       const data = res.data.product;
-      // console.log(data);
       setProducts(data);
     } catch (error) {
       console.log("Something went wrong" + error);
@@ -22,6 +21,7 @@ const HomeCards = () => {
 
   // Import limit
   const recentsProducts = products && products.slice(0, 2);
+
   return (
     <section className="py-4">
       <div className="container-xl lg:container m-auto">

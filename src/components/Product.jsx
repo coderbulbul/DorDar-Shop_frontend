@@ -1,7 +1,7 @@
 // Import depencies
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { getImageURL } from "../utilities/image-utils";
+// import { getImageURL } from "../utilities/image-utils";
 
 const Product = ({ product }) => {
   const [showFullDescription, setShowFullDescription] = useState(false);
@@ -9,7 +9,7 @@ const Product = ({ product }) => {
   // Show limited description in product list
   let productDescription = product.productDescription;
   if (!showFullDescription) {
-    productDescription = productDescription.substring(0, 120);
+    // productDescription = productDescription.substring(0, 120);
   }
   return (
     <div className="bg-white rounded-xl shadow-md relative">
@@ -18,7 +18,7 @@ const Product = ({ product }) => {
           <div className="w-full h-full">
             <img
               className=" h-52 m-auto"
-              src={getImageURL(product.productImage)}
+              src={`http://localhost:8000/images/${product.productImage}`}
             />
           </div>
           <h1 className="mb-5 text-2xl font-bold">{product.productName}</h1>

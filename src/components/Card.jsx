@@ -1,7 +1,7 @@
 // Import dependensies
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { getImageURL } from "../utilities/image-utils";
+// import { getImageURL } from "../utilities/image-utils";
 
 const Card = ({ product }) => {
   // Declare description state
@@ -46,7 +46,8 @@ const Card = ({ product }) => {
         <div className="flex-1">
           <img
             className="h-auto w-auto rouded-md"
-            src={getImageURL(product.productImage)}
+            // src={getImageURL(product.productImage)}
+            src={`http://localhost:8000/images/${product.productImage}`}
             alt="Smart Watch Black"
           />
         </div>

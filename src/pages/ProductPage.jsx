@@ -1,12 +1,13 @@
-import axios from "axios";
-import { Link, useLoaderData } from "react-router-dom";
+// import axios from "axios";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import { getImageURL } from "../utilities/image-utils";
 
 const ProductPage = () => {
-  // const { id } = useParams();
+  const { id } = useParams();
   const product = useLoaderData();
-  // console.log(product);
+  console.log(product);
+
   const isStockAvailable = product.productStock > 0 ? "true" : false;
 
   return (
@@ -122,13 +123,12 @@ const ProductPage = () => {
   );
 };
 
+// Product data loader
 const productLoader = async ({ params }) => {
-  const res = await axios.get(
-    `https://dordar-backend.vercel.app/products/${params.id}`
-  );
-  const data = await res.data.product;
+  const res = await fetch(`http://localhost:8000/products/${params.id}`);
+  const data = await res.json();
 
-  return data;
+  return data.product;
 };
 
 export { ProductPage as default, productLoader };
