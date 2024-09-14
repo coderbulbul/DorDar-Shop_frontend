@@ -12,8 +12,8 @@ const ProductListings = ({ isHome = false }) => {
     // Fetch all product from db
     const fetchProducts = async () => {
       const apiUrl = isHome
-        ? "http://localhost:8000/products/?_limit=3"
-        : "http://localhost:8000/products";
+        ? "https://dordar-backend.vercel.app/products/?_limit=3"
+        : "https://dordar-backend.vercel.app/products";
       try {
         const res = await axios.get(apiUrl);
         const data = res.data.product;

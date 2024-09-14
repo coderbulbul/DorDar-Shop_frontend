@@ -18,7 +18,7 @@ const Product = ({ product }) => {
           <div className="w-full h-full">
             <img
               className=" h-52 m-auto"
-              src={`http://localhost:8000/images/${product.productImage}`}
+              src={`https://dordar-backend.vercel.app/images/${product.productImage}`}
             />
           </div>
           <h1 className="mb-5 text-2xl font-bold">{product.productName}</h1>

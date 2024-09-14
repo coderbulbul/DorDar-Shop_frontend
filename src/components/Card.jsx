@@ -47,7 +47,7 @@ const Card = ({ product }) => {
           <img
             className="h-auto w-auto rouded-md"
             // src={getImageURL(product.productImage)}
-            src={`http://localhost:8000/images/${product.productImage}`}
+            src={`https://dordar-backend.vercel.app/images/${product.productImage}`}
             alt="Smart Watch Black"
           />
         </div>
