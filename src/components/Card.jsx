@@ -1,17 +1,34 @@
 // Import dependensies
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 // import { getImageURL } from "../utilities/image-utils";
 
 const Card = ({ product }) => {
   // Declare description state
   const [showFullDescription, setShowFullDescription] = useState(false);
+  const [image, setImage] = useState(null);
 
   // Show limited description
   let productDescription = product.productDescription;
   if (!showFullDescription) {
     productDescription = productDescription.substring(0, 125) + "..";
   }
+
+  useEffect(() => {
+    fetchImage();
+  }, []);
+
+  const fetchImage = async () => {
+    try {
+      var res = await axios.get(
+        `http://localhost:8000/images/${product.productImage}`
+      );
+      setImage(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <Link to={`/products/${product._id}`}>
@@ -46,8 +63,8 @@ const Card = ({ product }) => {
         <div className="flex-1">
           <img
             className="h-auto w-auto rouded-md"
-            // src={getImageURL(product.productImage)}
-            src={`https://dordar-backend.vercel.app/images/${product.productImage}`}
+            // src={image}
+            src={`http://localhost:8000/images/${product.productImage}`}
             alt="Smart Watch Black"
           />
         </div>

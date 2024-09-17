@@ -16,6 +16,7 @@ const AddProduct = () => {
       productVariant: "",
       productDescription: "",
       productImage: "",
+      productImageUrl: "",
     },
 
     // Form validation Schema
@@ -44,13 +45,6 @@ const AddProduct = () => {
     toast.success("New Product added");
     try {
       // POST request to save data into database
-      const result = await axios.post(
-        "http://localhost:8000/products",
-        formik.values
-      );
-      console.log(result.data);
-
-      // POST request to save data into database
       const formData = new FormData();
       formData.append("image", file[0]);
 
@@ -64,8 +58,15 @@ const AddProduct = () => {
           },
         }
       );
-      console.log(result1);
-      // setImageName(result1.data.imageName);
+
+      // POST request to save data into database
+      formik.setFieldValue("productImageUrl", result1.data.data.url);
+
+      const result = await axios.post(
+        "http://localhost:8000/products",
+        formik.values
+      );
+      console.log(result.data);
     } catch (error) {
       console.log("Error making post request", error);
     }
