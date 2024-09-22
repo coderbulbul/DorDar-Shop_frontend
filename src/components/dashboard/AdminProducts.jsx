@@ -2,7 +2,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
-
 import "react-toastify/dist/ReactToastify.css";
 
 const AdminProducts = () => {
@@ -13,7 +12,9 @@ const AdminProducts = () => {
     // fetch products
     const fetchProducts = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/products");
+        const res = await axios.get(
+          "https://dordar-backend.vercel.app/products"
+        );
         const data = await res.data.product;
         setProducts(data);
       } catch (error) {
@@ -28,7 +29,7 @@ const AdminProducts = () => {
     toast.error("Delete");
     try {
       const response = await axios.delete(
-        `http://localhost:8000/products/${productId}`
+        `https://dordar-backend.vercel.app/products/${productId}`
       );
 
       console.log(response.data);

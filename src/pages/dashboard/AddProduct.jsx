@@ -63,7 +63,7 @@ const AddProduct = () => {
       toast.success("New Product added");
       try {
         const result2 = await axios.post(
-          "http://localhost:8000/products",
+          "https://dordar-backend.vercel.app/products",
           formik.values
         );
         console.log(result2);
