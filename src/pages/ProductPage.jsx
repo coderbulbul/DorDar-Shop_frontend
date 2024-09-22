@@ -5,8 +5,6 @@ import { FaArrowLeft } from "react-icons/fa";
 const ProductPage = () => {
   const { id } = useParams();
   const product = useLoaderData();
-  console.log(product);
-
   const isStockAvailable = product.productStock > 0 ? "true" : false;
 
   return (
