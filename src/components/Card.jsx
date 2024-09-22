@@ -1,35 +1,17 @@
 // Import dependensies
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
-// import { getImageURL } from "../utilities/image-utils";
 
 const Card = ({ product }) => {
   // Declare description state
   const [showFullDescription, setShowFullDescription] = useState(false);
-  const [image, setImage] = useState(null);
 
   // Show limited description
   let productDescription = product.productDescription;
   if (!showFullDescription) {
     productDescription = productDescription.substring(0, 125) + "..";
   }
-
-  useEffect(() => {
-    fetchImage();
-  }, []);
-
-  const fetchImage = async () => {
-    try {
-      var res = await axios.get(
-        `http://localhost:8000/images/${product.productImage}`
-      );
-      setImage(res.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
+  console.log(product);
   return (
     <Link to={`/products/${product._id}`}>
       <div
@@ -63,8 +45,7 @@ const Card = ({ product }) => {
         <div className="flex-1">
           <img
             className="h-auto w-auto rouded-md"
-            // src={image}
-            src={`http://localhost:8000/images/${product.productImage}`}
+            src={product.productImageUrl}
             alt="Smart Watch Black"
           />
         </div>

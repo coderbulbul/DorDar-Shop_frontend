@@ -8,7 +8,28 @@ import "react-toastify/dist/ReactToastify.css";
 
 const AddProduct = () => {
   const [file, setFile] = useState();
-  // Formik initail value
+
+  const handleImage = async () => {
+    toast.success("Image Uploaded");
+
+    const formData = new FormData();
+    formData.append("image", file[0]);
+
+    //Post request to upload image to server
+    const result1 = await axios.post(
+      "http://localhost:8000/upload-image",
+      formData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
+
+    console.log(result1);
+    formik.setFieldValue("productImageUrl", result1.data.data.url);
+  };
+
   const formik = useFormik({
     initialValues: {
       productName: "",
@@ -36,41 +57,21 @@ const AddProduct = () => {
         .min(20, "Product description will be more than 20 character")
         .max(300, "Product description will be less than 300 character")
         .required("Product description is required"),
-      // productImage: Yup.mixed().required("Product Image required"),
+      productImageUrl: Yup.string(),
     }),
+    onSubmit: async () => {
+      toast.success("New Product added");
+      try {
+        const result2 = await axios.post(
+          "http://localhost:8000/products",
+          formik.values
+        );
+        console.log(result2);
+      } catch (error) {
+        console.log(error);
+      }
+    },
   });
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    toast.success("New Product added");
-    try {
-      // POST request to save data into database
-      const formData = new FormData();
-      formData.append("image", file[0]);
-
-      // Post request to upload image to server
-      const result1 = await axios.post(
-        "http://localhost:8000/upload-image",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-
-      // POST request to save data into database
-      formik.setFieldValue("productImageUrl", result1.data.data.url);
-
-      const result = await axios.post(
-        "http://localhost:8000/products",
-        formik.values
-      );
-      console.log(result.data);
-    } catch (error) {
-      console.log("Error making post request", error);
-    }
-  };
 
   return (
     <div className="bg-slate-100 h-svh">
@@ -78,7 +79,7 @@ const AddProduct = () => {
         <h1 className=" text-3xl py-4 font-bold text-center">
           Add New Product🎁
         </h1>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={formik.handleSubmit}>
           <div className="text-base flex flex-col">
             {/* Input field name start */}
             <label
@@ -201,13 +202,24 @@ const AddProduct = () => {
               }}
               accept="image/*"
             />
+            <button
+              onClick={handleImage}
+              type="button"
+              className={`bg-green-500 text-white font-bold px-6 py-2 mt-2 rounded-md ${
+                formik.values.productImageUrl === "" ? " " : " hidden"
+              }`}
+            >
+              Upload Image
+            </button>
 
             {/* Input field Product upload end */}
           </div>
           {/* Submit button start */}
           <button
             type="submit"
-            className="py-2 px-3 rounded-lg bg-indigo-700 hover:bg-indigo-600 text-white font-bold mt-3 w-full"
+            className={`py-2 px-3 rounded-lg bg-indigo-700 hover:bg-indigo-600 text-white font-bold mt-3 w-full ${
+              formik.values.productImageUrl !== "" ? " " : "hidden"
+            }`}
           >
             Add Productfile
           </button>
