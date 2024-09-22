@@ -13,7 +13,7 @@ const AdminProducts = () => {
     const fetchProducts = async () => {
       try {
         const res = await axios.get(
-          "https://dordar-backend.vercel.app/products"
+          "https://dordar-backend.vercel.app/api/products"
         );
         const data = await res.data.product;
         setProducts(data);
@@ -29,7 +29,7 @@ const AdminProducts = () => {
     toast.error("Delete");
     try {
       const response = await axios.delete(
-        `https://dordar-backend.vercel.app/products/${productId}`
+        `https://dordar-backend.vercel.app/products/api/${productId}`
       );
 
       console.log(response.data);
