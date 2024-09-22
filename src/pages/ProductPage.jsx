@@ -1,7 +1,6 @@
 // import axios from "axios";
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
-import { getImageURL } from "../utilities/image-utils";
 
 const ProductPage = () => {
   const { id } = useParams();
@@ -31,7 +30,7 @@ const ProductPage = () => {
               <div className="bg-white p-6 rounded-lg shadow-md text-center md:text-left">
                 <img
                   className="max-w-80 m-auto"
-                  src={getImageURL(product.productImage)}
+                  src={product.productImageUrl}
                   alt={product.productName}
                 />
               </div>
