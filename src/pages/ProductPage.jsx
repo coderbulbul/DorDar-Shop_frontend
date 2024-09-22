@@ -124,7 +124,9 @@ const ProductPage = () => {
 
 // Product data loader
 const productLoader = async ({ params }) => {
-  const res = await fetch(`http://localhost:8000/products/${params.id}`);
+  const res = await fetch(
+    `https://dordar-backend.vercel.app/api/products/${params.id}`
+  );
   const data = await res.json();
 
   return data.product;
