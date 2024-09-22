@@ -16,10 +16,7 @@ const Product = ({ product }) => {
       <Link to={`/products/${product._id}`}>
         <div className="p-4 text-center items-center">
           <div className="w-full h-full">
-            <img
-              className=" h-52 m-auto"
-              src={`http://localhost:8000/images/${product.productImage}`}
-            />
+            <img className=" h-52 m-auto" src={product.productImageUrl} />
           </div>
           <h1 className="mb-5 text-2xl font-bold">{product.productName}</h1>
           <div className="mb-3">
