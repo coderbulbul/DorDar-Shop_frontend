@@ -11,9 +11,7 @@ const ProductListings = ({ isHome = false }) => {
   useEffect(() => {
     // Fetch all product from db
     const fetchProducts = async () => {
-      const apiUrl = isHome
-        ? "http://localhost:8000/products/?_limit=3"
-        : "http://localhost:8000/products";
+      const apiUrl = isHome ? "/api/products/?_limit=3" : "/api/products";
       try {
         const res = await axios.get(apiUrl);
         const data = res.data.product;
