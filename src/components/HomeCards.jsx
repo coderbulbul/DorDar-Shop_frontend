@@ -11,7 +11,9 @@ const HomeCards = () => {
   const fetchProducts = async () => {
     // Fetch products
     try {
-      const res = await axios.get("/api/products");
+      const res = await axios.get(
+        "https://dordar-backend.vercel.app/api/products"
+      );
       const data = res.data.product;
       setProducts(data);
     } catch (error) {

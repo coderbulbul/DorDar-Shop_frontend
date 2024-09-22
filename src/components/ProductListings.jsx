@@ -11,7 +11,9 @@ const ProductListings = ({ isHome = false }) => {
   useEffect(() => {
     // Fetch all product from db
     const fetchProducts = async () => {
-      const apiUrl = isHome ? "/api/products/?_limit=3" : "/api/products";
+      const apiUrl = isHome
+        ? "https://dordar-backend.vercel.app/api/products/?_limit=3"
+        : "https://dordar-backend.vercel.app/api/products";
       try {
         const res = await axios.get(apiUrl);
         const data = res.data.product;
