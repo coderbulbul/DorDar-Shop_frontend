@@ -1,6 +1,6 @@
 // Import dependencies
 import { apiSlice } from "./apiSlice";
-const USERS_URL = "/api/users";
+const USERS_URL = "https://dordar-backend.vercel.app/api/users";
 
 export const usersApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
