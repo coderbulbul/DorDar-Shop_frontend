@@ -2,6 +2,7 @@
 import AdminSidebar from "../../components/dashboard/AdminSidebar";
 import AdminProducts from "../../components/dashboard/AdminProducts";
 import AddProduct from "../../pages/dashboard/AddProduct";
+import Orders from "../../pages/dashboard/Orders";
 
 const AdminDashboard = () => {
   const path = window.location.pathname;
@@ -10,6 +11,8 @@ const AdminDashboard = () => {
     component = <AdminProducts />;
   } else if (path === "/add-product") {
     component = <AddProduct />;
+  } else if (path === "/orders") {
+    component = <Orders />;
   }
   return (
     <>

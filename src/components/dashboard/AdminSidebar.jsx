@@ -2,6 +2,7 @@
 import { Link } from "react-router-dom";
 import { MdDashboard } from "react-icons/md";
 import { RiShoppingBag4Line } from "react-icons/ri";
+import { FaShoppingBasket } from "react-icons/fa";
 
 // Declare component
 const AdminSidebar = () => {
@@ -17,7 +18,10 @@ const AdminSidebar = () => {
             <RiShoppingBag4Line className="mr-3 text-xl" />
             <Link to="/add-product">Add Product</Link>
           </li>
-         
+          <li className="py-3 px-6 hover:bg-indigo-500 flex flex-row">
+            <FaShoppingBasket className="mr-3 text-xl" />
+            <Link to="/orders">Orders</Link>
+          </li>
         </ul>
       </section>
     </>
