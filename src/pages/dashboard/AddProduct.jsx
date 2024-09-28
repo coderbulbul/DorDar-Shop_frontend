@@ -17,7 +17,7 @@ const AddProduct = () => {
 
     //Post request to upload image to server
     const result1 = await axios.post(
-      "https://dordar-backend.vercel.app/upload-image",
+      "https://dordarbackend-production.up.railway.app/upload-image",
       formData,
       {
         headers: {
