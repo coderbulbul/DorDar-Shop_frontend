@@ -123,7 +123,7 @@ const ProductPage = () => {
 // Product data loader
 const productLoader = async ({ params }) => {
   const res = await fetch(
-    `https://dordar-backend.vercel.app/api/products/${params.id}`
+    `https://dordarbackend-production.up.railway.app/api/products/${params.id}`
   );
   const data = await res.json();
 

@@ -12,7 +12,7 @@ const HomeCards = () => {
     // Fetch products
     try {
       const res = await axios.get(
-        "https://dordar-backend.vercel.app/api/products"
+        "https://dordarbackend-production.up.railway.app/api/products"
       );
       const data = res.data.product;
       setProducts(data);
