@@ -97,8 +97,13 @@ const BkashPayment = () => {
 
   return (
     <div className="max-w-96 xl:max-w-screen-sm m-auto py-10 bg-indigo-100 p-10 my-8 rounded-lg">
-      <div className="w-10 h-10 object-cover rounded-md">
-        <img src={product.productImageUrl} alt={product.productName} />
+      <div className="flex flex-row w-12 h-12 object-cover rounded-md">
+        <img
+          className="rounded-md"
+          src={product.productImageUrl}
+          alt={product.productName}
+        />
+        <h2 className="text-3xl font-bold">{product.productName}</h2>
       </div>
       <div className="text-center mb-5">
         <h1 className="text-3xl font-bold py-2 ">Confirm Your Order Now 👏!</h1>
