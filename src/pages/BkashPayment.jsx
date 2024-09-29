@@ -20,6 +20,7 @@ const BkashPayment = () => {
   const [paymentData, setPaymentData] = useState({
     amount: "",
     orderId: "",
+    productName: "",
   });
 
   // Set amount state
@@ -28,6 +29,7 @@ const BkashPayment = () => {
       ...paymentData,
       amount: paymentTypeValue === "bkash" ? product.productPrice + 100 : 100,
       orderId: (Math.random() + 1).toString().substring(5),
+      productName: product.productName,
     });
   }, [paymentTypeValue]);
 
@@ -82,6 +84,7 @@ const BkashPayment = () => {
         {
           amount: paymentData.amount,
           orderId: paymentData.orderId,
+          productName: paymentData.productName,
           customer: formik.values,
         },
         {

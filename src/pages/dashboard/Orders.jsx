@@ -68,6 +68,9 @@ const Orders = () => {
                     contact
                   </th>
                   <th scope="col" className="px-4 py-3">
+                    Ordered Product
+                  </th>
+                  <th scope="col" className="px-4 py-3">
                     Order Time
                   </th>
                   <th scope="col" className="px-4 py-3">
@@ -98,6 +101,7 @@ const Orders = () => {
                       <td className="px-4 py-2">{order.district}</td>
                       <td className="px-4 py-2">{order.address}</td>
                       <td className="px-4 py-2">0{order.contact}</td>
+                      <td className="px-4 py-2">0{order.productName}</td>
                       <td className="px-4 py-2"> {order.date}</td>
                       <td className="px-4 py-2 text-wrap">
                         {" "}
