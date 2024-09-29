@@ -62,6 +62,9 @@ const Orders = () => {
                     District
                   </th>
                   <th scope="col" className="px-4 py-3">
+                    Full Address
+                  </th>
+                  <th scope="col" className="px-4 py-3">
                     contact
                   </th>
                   <th scope="col" className="px-4 py-3">
@@ -91,8 +94,9 @@ const Orders = () => {
                       >
                         {order.name}
                       </th>
-                      <td className="px-4 py-2">{order.district}</td>
                       <td className="px-4 py-2">{order.thana}</td>
+                      <td className="px-4 py-2">{order.district}</td>
+                      <td className="px-4 py-2">{order.address}</td>
                       <td className="px-4 py-2">0{order.contact}</td>
                       <td className="px-4 py-2"> {order.date}</td>
                       <td className="px-4 py-2 text-wrap">
