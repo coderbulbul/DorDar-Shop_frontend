@@ -7,7 +7,6 @@ import axios from "axios";
 const BkashPayment = () => {
   // Bring ordered productId payment page
   const product = useLoaderData();
-  console.log(product);
 
   // Payment Type
   const paymentItems = [
@@ -20,7 +19,6 @@ const BkashPayment = () => {
   const [paymentData, setPaymentData] = useState({
     amount: "",
     orderId: "",
-    productName: "",
   });
 
   // Set amount state
@@ -29,7 +27,6 @@ const BkashPayment = () => {
       ...paymentData,
       amount: paymentTypeValue === "bkash" ? product.productPrice + 100 : 100,
       orderId: (Math.random() + 1).toString().substring(5),
-      productName: product.productName,
     });
   }, [paymentTypeValue]);
 
@@ -44,6 +41,7 @@ const BkashPayment = () => {
       thana: "",
       district: "",
       fullAddress: "",
+      productName: product.productName,
       paymentType: paymentTypeValue,
     },
 
@@ -84,7 +82,6 @@ const BkashPayment = () => {
         {
           amount: paymentData.amount,
           orderId: paymentData.orderId,
-          productName: paymentData.productName,
           customer: formik.values,
         },
         {
