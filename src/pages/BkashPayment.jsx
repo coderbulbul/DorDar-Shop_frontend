@@ -77,7 +77,7 @@ const BkashPayment = () => {
   const pay = async () => {
     try {
       const { data } = await axios.post(
-        "api/bkash/payment/create",
+        "/bkash/payment/create",
         {
           amount: paymentData.amount,
           orderId: paymentData.orderId,
