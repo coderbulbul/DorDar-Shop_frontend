@@ -31,7 +31,6 @@ const BkashPayment = () => {
       orderId: (Math.random() + 1).toString().substring(5),
       productName: product.productName,
     });
-    console.log(product.productName);
   }, [paymentTypeValue]);
 
   // Formik form validation
