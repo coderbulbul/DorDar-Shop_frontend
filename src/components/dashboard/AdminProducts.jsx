@@ -22,7 +22,7 @@ const AdminProducts = () => {
       } catch (error) {
         console.log(error);
       } finally {
-        // setLoading(false);
+        setLoading(false);
       }
     };
     fetchProducts();
@@ -72,7 +72,7 @@ const AdminProducts = () => {
                 </tr>
               </thead>
               {loading ? (
-                <div className="flex align-center justify-center h-28">
+                <div className="flex align-center h-28 ">
                   <Spinner />
                 </div>
               ) : (
