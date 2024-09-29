@@ -25,7 +25,7 @@ const BkashPayment = () => {
   useEffect(() => {
     setPaymentData({
       ...paymentData,
-      amount: paymentTypeValue === "bkash" ? product.productPrice + 50 : 50,
+      amount: paymentTypeValue === "bkash" ? product.productPrice + 100 : 100,
       orderId: (Math.random() + 1).toString().substring(5),
     });
   }, [paymentTypeValue]);
@@ -256,7 +256,7 @@ const BkashPayment = () => {
                   : " Payment after delivary"}{" "}
               </span>
               <span>
-                <strong>Delivary Charge:</strong> 120 /-
+                <strong>Delivary Charge:</strong> 100 /-
               </span>
 
               <span className="mt-2">
