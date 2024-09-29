@@ -77,7 +77,7 @@ const BkashPayment = () => {
   const pay = async () => {
     try {
       const { data } = await axios.post(
-        "/bkash/payment/create",
+        "https://dordarbackend-production.up.railway.app/bkash/payment/create",
         {
           amount: paymentData.amount,
           orderId: paymentData.orderId,
