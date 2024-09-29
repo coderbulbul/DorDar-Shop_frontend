@@ -196,6 +196,7 @@ const AdminSignup = () => {
             {/* Move to Sign IN end */}
             <button
               type="submit"
+              disabled="true"
               className="py-2 px-3 mb-10 rounded-lg bg-indigo-700 hover:bg-indigo-600 text-white font-bold mt-3 w-full sm:w-auto"
             >
               Signup
