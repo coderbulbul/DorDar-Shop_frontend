@@ -1,12 +1,14 @@
 // Import dependencies
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Spinner from "../Spinner";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const AdminProducts = () => {
   // Declare state
   const [products, setProducts] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // fetch products
@@ -19,6 +21,8 @@ const AdminProducts = () => {
         setProducts(data);
       } catch (error) {
         console.log(error);
+      } finally {
+        setLoading(false);
       }
     };
     fetchProducts();
@@ -67,38 +71,45 @@ const AdminProducts = () => {
                   </th>
                 </tr>
               </thead>
-              <tbody>
-                {products &&
-                  products.map((product) => (
-                    <tr
-                      key={product._id}
-                      className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
-                    >
-                      <th
-                        scope="row"
-                        className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+              {loading ? (
+                <div className="flex align-center justify-center h-28">
+                  <Spinner />
+                </div>
+              ) : (
+                <tbody>
+                  {products &&
+                    products.map((product) => (
+                      <tr
+                        key={product._id}
+                        className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
                       >
-                        {product.productName}
-                      </th>
-                      <td className="px-6 py-4">{product.productVariant}</td>
-                      <td className="px-6 py-4">{product.productPrice}</td>
-                      <td className="px-6 py-4">{product.productStock}</td>
-                      <td className="px-6 py-4">
-                        <a
-                          onClick={() => {
-                            confirm("Are you sure?")
-                              ? deleteProduct(product._id)
-                              : "";
-                          }}
-                          className="font-medium text-red-600 cursor-pointer dark:text-blue-500 hover:underline"
+                        <th
+                          scope="row"
+                          className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                         >
-                          Delete
-                        </a>
-                      </td>
-                    </tr>
-                  ))}
-              </tbody>
+                          {product.productName}
+                        </th>
+                        <td className="px-6 py-4">{product.productVariant}</td>
+                        <td className="px-6 py-4">{product.productPrice}</td>
+                        <td className="px-6 py-4">{product.productStock}</td>
+                        <td className="px-6 py-4">
+                          <a
+                            onClick={() => {
+                              confirm("Are you sure?")
+                                ? deleteProduct(product._id)
+                                : "";
+                            }}
+                            className="font-medium text-red-600 cursor-pointer dark:text-blue-500 hover:underline"
+                          >
+                            Delete
+                          </a>
+                        </td>
+                      </tr>
+                    ))}
+                </tbody>
+              )}
             </table>
+
             <ToastContainer />
           </div>
         </div>
