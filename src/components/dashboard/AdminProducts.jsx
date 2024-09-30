@@ -10,21 +10,21 @@ const AdminProducts = () => {
   const [products, setProducts] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const fetchProducts = async () => {
+    try {
+      const res = await axios.get(
+        "https://dordarbackend-production.up.railway.app/api/products"
+      );
+      const data = await res.data.product;
+      setProducts(data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
   useEffect(() => {
     // fetch products
-    const fetchProducts = async () => {
-      try {
-        const res = await axios.get(
-          "https://dordarbackend-production.up.railway.app/api/products"
-        );
-        const data = await res.data.product;
-        setProducts(data);
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setLoading(false);
-      }
-    };
     fetchProducts();
   }, []);
 
@@ -35,10 +35,11 @@ const AdminProducts = () => {
       const response = await axios.delete(
         `https://dordarbackend-production.up.railway.app/api/products/${productId}`
       );
-
       console.log(response.data);
     } catch (error) {
       console.log(error);
+    } finally {
+      fetchProducts();
     }
   };
 
